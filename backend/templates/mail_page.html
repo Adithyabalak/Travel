@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'index_page.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="text-align: center;">
+<form method="post" action="{% url 'mail_page' %}">
+    {% csrf_token %}
+<h4>contact client</h4>
+<input type="text" name="name" placeholder="title of email" required><br><br>
+<input type="email" name="email" placeholder="email adress" required><br><br>
+<textarea  name="message" placeholder="deliverd" required></textarea><br><br>
+<button class="btn btn-primary mt-2" type="submit" >send</button>
+</div>
+
+
+</form>
+
+</body>
+</html>
+{% endblock %}

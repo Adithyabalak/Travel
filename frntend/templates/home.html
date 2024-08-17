@@ -1,0 +1,432 @@
+<!doctype html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Free Tour and Travel Website Tempalte | Smarteyeapps.com</title>
+    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/fav.jpg">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/slider/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/slider/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+</head>
+
+    <body>
+        <header id="menu-jk" class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 logo">
+                    <img src="{% static 'assets/images/logo.jpg' %}" alt="">
+                     <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
+                </div>
+                <div id="menu" class="col-lg-6 col-md-9 d-none d-md-block navs">
+                    <ul>
+                        <li><a href="{% url 'home_page' %}">Home</a></li>
+                        <li><a href="{% url 'about_page' %}">About Us</a></li>
+                        <li><a href="{% url 'hotel_all' %}">Hotels</a></li>
+                        <li><a href="{% url 'all_des' %}">Destinations</a></li>
+                        <li><a href="{% url 'contact_us' %}">Contact</a></li>
+                     <li><a href="{% url 'booking_page' %}">Booked Details</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-md-3 d-none d-lg-block socila-link">
+<!--                    <div style="margin-top: 30px; margin-left:-60px;" >-->
+<!--                        <a href="{% url 'chatbot_page' %}">-->
+<!--                         <i style="color: #724ae8" class="material-icons"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">-->
+<!--  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>-->
+<!--  <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>-->
+<!--                         </svg></i></a></div>-->
+
+                    <ul>
+                      {% if request.session.name %}
+						<li><a href="{% url 'logout_user' %}"><i class="fa fa-dollar"></i> {{request.session.name}}/logout</a></li>
+						{% else %}
+						<li><a href="{% url 'login_page' %}"><i class="fa fa-dollar"></i> login/register</a></li>
+						{% endif %}
+                    </ul>
+                </div>
+            </div>
+
+        </header>
+
+
+    <!-- ******************** Slider Starts Here ******************* -->
+    <div class="slider">
+        <!-- Set up your HTML -->
+        <div class="owl-carousel ">
+            <div class="slider-img">
+                <div class="item">
+                    <div class="slider-img"><img src="{% static 'assets/images/slider/slider-3.jpg' %}" alt=""></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                                <div class="animated bounceInDown slider-captions">
+                                    <h1 class="slider-title">WELCOME TO THAILAND</h1>
+                                    <p class="slider-text hidden-xs"> </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="slider-img"><img src="{% static 'assets/images/slider/slider-1.jpg' %}" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                            <div class="slider-captions ">
+                                <h1 class="slider-title">Enjoy Your vacation Here</h1>
+                                <p class="slider-text hidden-xs"> </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="slider-img"><img src="{% static 'assets/images/slider/slider-2.jpg' %}" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                            <div class="slider-captions ">
+                                <h1 class="slider-title"></h1>
+                                <p class="slider-text hidden-xs"></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="search container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 ">
+                    <h4>Where you want to go?</h4>
+                </div>
+                <div class="col-md-8">
+                    <div class="row form-detail">
+                        <div class="col-md-3 ffb">
+                            <select name="" id="aa" class="form-control">
+                                <option value="">Travel Destinaton</option>
+                                <option value="1">Australia</option>
+                                <option value="2">Canada</option>
+                            </select>
+                        </div>
+                         <div class="col-md-3 ffb">
+                            <input placeholder="Select Date" type="text" class="form-control">
+                        </div>
+                         <div class="col-md-3 ffb">
+                             <select name="" id="" class="form-control">
+                                <option value="">Travel Type</option>
+                                <option value="1">First Option</option>
+                                <option value="2">Second Option</option>
+                            </select>
+                        </div>
+                         <div class="col-md-3 ffb">
+                            <button class="btn btn-primary w-100">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ******************** Travel Destination Starts Here ******************* -->
+
+    <div class="travel-destination container-fluid">
+        <div class="container">
+            <div class="session-title">
+                <h2>Popular Thailand  Destination</h2>
+            </div>
+
+            <div class="destination-row row">
+            {% for i in des %}
+
+                <div class="col-md-4 descol">
+                   <div class="destcol">
+                       <img src="{{ i.profile3.url }}" alt="" width="200px" height="300px">
+
+                       <div class="layycover">
+                           <h4>{{i.place}}</h4>
+                             <div style="text-align: center;">
+                           <a href="{% url 'single_page' pro_id=i.id %}"> <button type="button" class="btn btn-primary btn-sm">view more</button></a>
+                       </div>
+
+
+
+
+
+
+
+
+
+
+
+                       </div>
+                   </div>
+                </div>
+                 {% endfor %}
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ******************** Popular Packages Starts Here ******************* -->
+
+    <section class="container-fluid popular-pack">
+        <div class="container">
+             <div class="session-title row">
+                <h2>Popular Hotels</h2>
+            </div>
+            <div class="row pack-row">
+                {% for i in hot %}
+
+                <div class="col-md-4">
+                    <div class="colpack">
+                         <img src="{{ i.profile.url }}" alt="" width="400px" height="300px">
+
+                        <div class="details row no-margin">
+                            <h4>{{i.place}}</h4>
+                            <p></p>
+
+                            <div>
+                                <a href="{% url 'all_hotel' ht_name=i.place %}">
+
+                               <button type="button" class="btn btn-primary btn-sm">view more</button>
+
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+ {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+
+
+  <!--################### Tour Review Starts Here #######################--->
+
+
+     <div class="review container-fluid">
+         <div class="container">
+              <div class="session-title">
+                <h2>What people say about Us</h2>
+            </div>
+            <div class="row review-row">
+                <div class="col-md-6">
+                    <div class="review-col">
+                        <div class="profil">
+                          <img src="{% static 'assets/images/testimonial/member-01.jpg' %}" alt="">
+                        </div>
+                        <div class="review-detail">
+                            <h4>Canadian Rockies</h4>
+                            <p>I had an exceptional experience with Travel Triangle and the Navigatio Asia team! Everything went smoothly, and all services were delivered on time, just as promised. The Navigatio Asia team was highly professional and ensured a seamless trip.</p>
+                            <h6>Canadian Rockies</h6>
+                            <ul class="rat">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="review-col">
+                        <div class="profil">
+                          <img src="{% static 'assets/images/testimonial/member-02.jpg' %}" alt="">
+                        </div>
+                        <div class="review-detail">
+                            <h4>Lake Tahoe Adventure</h4>
+                            <p>We booked our last minute trip to thailand from chanchal and she gave an exclusive deal for 5 star properties and the entire team of travtree is just amazing and so cooperative . Highly recommend it.</p>
+                            <h6>JLake Tahoe Adventure</h6>
+                            <ul class="rat">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="review-col">
+                        <div class="profil">
+                          <img src="{% static 'assets/images/testimonial/member-02.jpg' %}" alt="">
+                        </div>
+                        <div class="review-detail">
+                            <h4>Discover Costa Rica</h4>
+                            <p>The sightseeing and activities were better than we even thought! I still can’t believe we did so much in such a short time, but we did not feel stressed. We really loved the tour and would do it all over again in a minute! Thanks.</p>
+                            <h6>John Smith</h6>
+                            <ul class="rat">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="review-col">
+                        <div class="profil">
+                          <img src="{% static 'assets/images/testimonial/member-03.jpg' %}" alt="">
+                        </div>
+                        <div class="review-detail">
+                            <h4>Canadian Rockies</h4>
+                            <p>I had book my international trip to thailand with travtree , we spoke to chanchal sharma and get so much competitive price and with best services . also she is very cooperative and give so much personal attention to their customers. Highly recommend.</p>
+                            <h6> Canadian Rockies</h6>
+                            <ul class="rat">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+
+
+      <!--################### Blog Starts Here #######################--->
+
+        <div class="blog container-fluid">
+            <div class="container">
+                 <div class="session-title row">
+                    <h2>Our Activities</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin nisi id consequat bibendum. Phasellus at convallis elit. In purus enim, scelerisque id arcu vitae</p>
+                </div>
+                <div class="row blog-row">
+                     {% for i in act %}
+                    <div class="col-md-4">
+                        <div class="blogcol">
+                            <img src="{{ i.profile.url }}" alt="" width="400px" height="300px">
+
+                              <span>{{i.activity}}</span>
+                              <h4>{{i.hour}}hour/{{i.price}}Rs</h4>
+                            <a href="{% url 'single_act' actid=i.id %}"> <button type="button" class="btn btn-primary btn-sm">view more</button></a>
+                        </div>
+                    </div>
+               {% endfor %}
+                </div>
+            </div>
+        </div>
+
+       <!--  ************************* Footer Start Here ************************** -->
+
+<footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2>About Us</h2>
+                    <p>
+                        Smart Eye is a leading provider of information technology, consulting, and business process services. Our dedicated employees offer strategic insights, technological expertise and industry experience.
+                    </p>
+                    <p>We focus on technologies that promise to reduce costs, streamline processes and speed time-to-market, Backed by our strong quality processes and rich experience managing global... </p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h2>Useful Links</h2>
+                    <ul class="list-unstyled link-list">
+                        <li><a ui-sref="about" href="#/about">About us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="gallery" href="#/gallery">Pricing</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 map-img">
+                    <h2>Contact Us</h2>
+                    <address class="md-margin-bottom-40">
+                        BlueDart Hosting <br>
+                       765th Boulevard, <br>
+                        Rochester, CA <br>
+                        Phone: +1 831 143 556 <br>
+                        Email: <a href="mailto:info@bluedart.com" class="">info@bluedart.in</a><br>
+                        Web: <a href="https://smarteyeapps.com/" class="">www.bluedart.in</a>
+                    </address>
+
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+    <div class="copy">
+            <div class="container">
+                <a href="https://www.smarteyeapps.com/">2019 &copy; All Rights Reserved | Designed and Developed by Smarteyeapps</a>
+
+                <span>
+                <a><i class="fab fa-github"></i></a>
+                <a><i class="fab fa-google-plus-g"></i></a>
+                <a><i class="fab fa-pinterest-p"></i></a>
+                <a><i class="fab fa-twitter"></i></a>
+                <a><i class="fab fa-facebook-f"></i></a>
+        </span>
+            </div>
+
+        </div>
+
+    </body>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  {% if messages %}
+   {% for i in messages %}
+        {% if i.tags == 'success' %}
+        <script>
+            swal('{{i}}','','success')
+        </script>
+        {% elif i.tags == 'warning' %}
+        <script>
+            swal('{{i}}','','warning')
+        </script>
+        {% elif i.tags == 'error' %}
+        <script>
+            swal('{{i}}','','error')
+        </script>
+         {% else %}
+        <script>
+            swal('{{i}}','','info')
+        </script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+    <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js' %}"></script>
+    <script src="{% static 'assets/plugins/slider/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+</html>

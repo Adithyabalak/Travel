@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% extends 'index_page.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">HOTELS </h4>
+                  <p class="card-description">
+
+                  </p>
+                  <form class="forms-sample"  action="{% url 'save_hotel' %}" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div class="form-group">
+
+                      <label for="exampleInputplace1">place</label>
+                      <input type="text" class="form-control" id="exampleInputplace1" placeholder="place" name="place">
+                    </div>
+                           <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" placeholder="image" name="image">
+                        </div>
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleInputPassword4">Password</label>-->
+<!--                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleSelectGender">Gender</label>-->
+<!--                        <select class="form-control" id="exampleSelectGender">-->
+<!--                          <option>Male</option>-->
+<!--                          <option>Female</option>-->
+<!--                        </select>-->
+<!--                      </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label>File upload</label>-->
+<!--                      <input type="file" name="img[]" class="file-upload-default">-->
+<!--                      <div class="input-group col-xs-12">-->
+<!--                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">-->
+<!--                        <span class="input-group-append">-->
+<!--                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>-->
+<!--                        </span>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleInputCity1">City</label>-->
+<!--                      <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleTextarea1">Textarea</label>-->
+<!--                      <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>-->
+<!--                    </div>-->
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}

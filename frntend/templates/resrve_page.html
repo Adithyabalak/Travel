@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resort booking form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+   <ul>
+                        <li><a href="{% url 'home_page' %}">Home</a></li>
+                        </ul>
+
+
+    <div class="container">
+        <div class="my-element">
+
+
+
+        <form action="{% url 'save_reserve' %}" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+
+            <div id="form">
+                <h1 class="text-white text-center">Booking Now</h1>
+
+                <div id="first-group">
+
+                    <div id="content1">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" id="input-group1" placeholder="First name" name="name">
+                    </div>
+
+                    <div id="content">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <input type="number" id="input-group" placeholder="Phone number" name="phone">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <span class="form-label">Check out</span>
+                            <input class="form-control" type="date"  name="checkin">
+                            <span class="in-out hidden-xs hidden-sm">&#8652;</span>
+                        </div>
+                    </div>
+
+                    <div id="content">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <select id="input-group" style="background-color: black; " name="gust">
+                            <option value="" >No.of guests</option>
+                            <option value="" >1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div id="second-group">
+
+                    <div id="content">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" id="input-group" placeholder="Last name" name="name2">
+                    </div>
+
+                    <div id="content">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <input type="email" id="input-group" placeholder="Email" name="email">
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <span class="form-label">Check In</span>
+                            <input class="form-control" type="date" required name="checkout">
+                        </div>
+                    </div>
+                    <div id="content">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <select id="input-group" style="background-color: black;" name="types">
+                            <option value="">Room Type</option>
+                            <option value="">AC</option>
+                            <option value="">Non-AC</option>
+                            <option value="">Single Bed</option>
+                            <option value="">Double Bed</option>
+                        </select>
+                    </div>
+
+                </div>
+
+               <button type="submit" class="btn btn-primary">save</button>
+
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+	*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+   .my-element {
+            background-image: url("{% static 'assets/images/slider/resort.jpg' %}");
+
+
+    background-position: center;
+    background-size: auto;
+    height:800px;
+    width:1700px;
+     margin-top: -90px;
+     margin-left:-300px;
+
+
+}
+#form{
+    background-color: #000;
+    height:400px;
+    width:800px;
+    margin: auto;
+    margin-top: 100px;
+    opacity:0.7;
+
+}
+#first-group{
+    border:none;
+    width:400px;
+    margin-top: 38px;
+    position: absolute;
+}
+#content{
+    border: 1px solid #fff;
+    margin:10px;
+    margin-left: 8px;
+    padding:5px;
+}
+#content #input-group{
+    border:none;
+    outline:none;
+    background: transparent;
+    margin-left:8px;
+    width:300px;
+    color:#fff;
+}
+::placeholder{
+    color:#fff;
+}
+.fa{
+    display:inline-block;
+    color:red;
+    border-right:1px solid #fff;
+    padding:8px;
+    margin-left: 8px;
+}
+#second-group{
+    border:none;
+    width:400px;
+    margin-top: 55px;
+    margin-left:400px;
+}
+#submit-btn{
+    margin-top: 5px;
+    margin-left: 600px;
+    background: transparent;
+    color:#fff;
+    width:150px;
+    border:1px solid red;
+    outline:none;
+    padding:10px;
+    font-size: 20px;
+}
+</style>

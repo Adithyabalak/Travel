@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% extends 'index_page.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Hotel Details </h4>
+                  <p class="card-description">
+
+                  </p>
+                  <form class="forms-sample" action="{% url 'update_hotel_details' detid=data.id %}" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <label for="exampleselectplace">select place</label>
+                      <select class="form-control" id="exampleselectplace" name="place">
+                           <option>{{data.place}}</option>
+                          {% for i in hotl %}
+                          <option>{{i.place}}</option>
+                          {% endfor %}
+                      </select>
+                    <div class="form-group">
+                      <label for="exampleInputhotel3">Hotel name</label>
+                      <input type="text" class="form-control" id="exampleInputhotel3" placeholder="hotel" name="hotel" value="{{data.name}}">
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="exampleInputdes3">Description</label>
+                      <input type="text" class="form-control" id="exampleInputdes3" placeholder="Description" name="des" value="{{data.description}}">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputprice3">price</label>
+                      <input type="text" class="form-control" id="exampleInputprice3" placeholder="price" name="price" value="{{data.price}}">
+                    </div>
+
+                           <div class="form-group">
+                                <img src="{{data.profile1.url}}" width="100px" height="100px">
+                               <label>File upload</label>
+                        <input type="file" placeholder="image" name="image">
+                        </div>
+
+                           <div class="form-group">
+                                <img src="{{data.profile2.url}}" width="100px" height="100px">
+                        <label>File upload</label>
+                        <input type="file" placeholder="image" name="image1">
+                        </div>
+
+                           <div class="form-group">
+                                <img src="{{data.profile3.url}}" width="100px" height="100px">
+                        <label>File upload</label>
+                        <input type="file" placeholder="image" name="image2">
+                        </div>
+
+                           <div class="form-group">
+                               <img src="{{data.profile4.url}}" width="100px" height="100px">
+                        <label>File upload</label>
+                        <input type="file" placeholder="image" name="image3">
+                        </div>
+
+                           <div class="form-group">
+                               <img src="{{data.profile5.url}}" width="100px" height="100px">
+                        <label>File upload</label>
+                        <input type="file" placeholder="image" name="image4">
+                        </div>
+
+
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleInputPassword4">Password</label>-->
+<!--                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleSelectGender">Gender</label>-->
+<!--                        <select class="form-control" id="exampleSelectGender">-->
+<!--                          <option>Male</option>-->
+<!--                          <option>Female</option>-->
+<!--                        </select>-->
+<!--                      </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label>File upload</label>-->
+<!--                      <input type="file" name="img[]" class="file-upload-default">-->
+<!--                      <div class="input-group col-xs-12">-->
+<!--                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">-->
+<!--                        <span class="input-group-append">-->
+<!--                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>-->
+<!--                        </span>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleInputCity1">City</label>-->
+<!--                      <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleTextarea1">Textarea</label>-->
+<!--                      <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>-->
+<!--                    </div>-->
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}

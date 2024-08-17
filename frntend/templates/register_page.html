@@ -1,0 +1,89 @@
+<!doctype html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{%static 'user_login/fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{%static 'user_login/css/owl.carousel.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{%static 'user_login/css/bootstrap.min.css' %}">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{%static 'user_login/css/style.css' %}">
+
+    <title>Login #6</title>
+  </head>
+  <body>
+
+
+  <div class="d-lg-flex half">
+    <div class="bg order-1 order-md-2" style="background-image: url({% static 'user_login/images/bg_1.jpg' %});"></div>
+    <div class="contents order-2 order-md-1">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-7">
+            <div class="mb-4">
+              <h3>Register</h3>
+
+            </div>
+            <form action="{% url 'save_register' %}" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+              <div class="form-group first mb-3">
+                <input type="text" class="form-control" id="username" name="uname" placeholder="username">
+
+              </div>
+               <div class="form-group last mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder="email">
+
+              </div>
+
+              <div class="form-group last mb-3">
+                <input type="password" class="form-control" id="password" name="pass1" placeholder="password">
+
+              </div>
+               <div class="form-group last mb-3">
+                <input class="input100" type="file" name="image" placeholder="image" >
+
+
+              </div>
+
+              <div class="social-login">
+                 <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                    </div>
+
+
+
+
+              <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
+                 <div class="social-login">
+             <a href="{% url 'login_user' %}" ><button type="button" class="btn btn-secondary btn-lg btn-block">Login</button>
+                </a>
+
+
+
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+    <script src="{%static 'user_login/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{%static 'user_login/js/popper.min.js' %}"></script>
+    <script src="{%static 'user_login/js/bootstrap.min.js' %}"></script>
+    <script src="{%static 'user_login/js/main.js' %}"></script>
+  </body>
+</html>

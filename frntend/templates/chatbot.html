@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chatbot in JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="script.js" defer></script>
+  </head>
+  <body >
+  <li><a href="{% url 'home_page' %}">Home</a></li>
+    <button class="chatbot-toggler">
+      <span class="material-symbols-rounded">mode_comment</span>
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot">
+      <header>
+        <h2>Chatbot</h2>
+        <span class="close-btn material-symbols-outlined">close</span>
+      </header>
+      <ul class="chatbox">
+        <li class="chat incoming">
+          <span class="material-symbols-outlined">smart_toy</span>
+          <p>Hi there 👋<br>How can I help you today?</p>
+        </li>
+
+      </ul>
+      <div class="chat-input">
+        <textarea placeholder="Enter a message..." required></textarea>
+        <span id="send-btn" class="material-symbols-rounded">send</span>
+      </div>
+    </div>
+  <style>
+      /* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+    background: #e3f2fd;
+}
+.chatbot-toggler{
+position:fixed;
+right: 40px;
+bottom: 35px;
+height: 50px;
+width: 50px;
+color: #fff;
+border: none;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: none;
+outline: none;
+cursor: pointer;
+background: #724ae8;
+border-radius: 60%;
+transition: all 0.2s ease;
+
+
+}
+.show-chatbot .chatbot-toggler{
+    transform: rotate(90deg);
+}
+.chatbot-toggler span{
+    position: absolute;
+
+}
+.show-chatbot .chatbot-toggler span:first-child,
+.chatbot-toggler span:last-child{
+    opacity: 0;
+
+}
+.show-chatbot .chatbot-toggler span:last-child{
+    opacity: 1;
+}
+.chatbot{
+position:fixed;
+right: 40px;
+bottom: 100px;
+width: 420px;
+transform: scale(0.5);
+opacity: 0;
+pointer-events: none;
+overflow: hidden;
+background: #fff;
+border-radius: 15px;
+transform-origin: bottom right;
+box-shadow: 0 0 128px 0 rgba(0, 0,0, 0.1),
+             0 32px 64px - 48px 0,0,0,0.5;
+transition: all 0.1s ease;
+}
+.show-chatbot .chatbot{
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+
+}
+
+.chatbot header {
+    background-color: #724ae8;
+    padding: 16px 0;
+    text-align: center;
+    position: relative;
+}
+.chatbot header h2{
+    color: #fff;
+    font-size: 1.4rem;
+}
+.chatbot header span{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    transform: translateY(-50%);
+}
+.chatbot .chatbox{
+   height: 400px;
+   overflow-y: auto;
+   padding: 30px 20px 100px;
+
+
+
+}
+.chatbox .chat{
+    display: flex;
+}
+.chatbox .incoming span{
+    height: 32px;
+    width: 32px;
+    color: #fff;
+    background-color: #724ae8;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 4px;
+    margin: 0 10px 7px 0;
+    align-self: flex-end;
+}
+.chatbox .outgoing{
+    margin: 20px 0;
+    justify-content: flex-end;
+}
+.chatbox .chat p{
+    background: #724ae8;
+    max-width: 75%;
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 10px;
+    color: #fff;
+}
+.chatbox .chat p.error {
+    color: #721c24;
+    background: #f8d7da;
+}
+.chatbox .incoming p {
+    color: #000;
+    background-color: #f2f2f2;
+    border-radius: 10px 10px 10px p;
+
+}
+.chatbot .chat-input {
+    position: absolute;
+    bottom: 0;
+   width: 100%;
+   background: #fff;
+   border-top: 1px solid #ccc;
+   padding: 5px 20px;
+   display: flex;
+   gap: 5px;
+
+
+}
+.chat-input textarea{
+    height: 55px;
+    width: 100%;
+    max-height: 180px;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    resize: none;
+    padding: 16px 15px 16px 0;
+}
+.chat-input span{
+    align-self: flex-end;
+    height: 55px;
+    line-height: 55px;
+    color: #724ae8;
+    font-size: 1.35rem;
+    cursor: pointer;
+    visibility: hidden;
+}
+.chat-input textarea:valid ~ span{
+    visibility: visible;
+}
+@media(max-width:490px){
+    .chatbot{
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+    .chatbot .chatbox{
+        height: 90%;
+    }
+    .chatbot header span{
+        display: block;
+    }
+}
+
+  </style>
+  <script>
+      const chatInput = document.querySelector(".chat-input textarea");
+const sendChatBtn = document.querySelector(".chat-input span");
+const chatbox = document.querySelector(".chatbox");
+const chatbotToggler = document.querySelector(".chatbot-toggler");
+const chatbotCloseBtn = document.querySelector(".close-btn");
+
+
+
+
+let userMessage;
+const API_KEY ="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";
+const inputIniHeight = chatInput.scrollHeight;
+
+const createChatLi= (message, className) =>{
+    //create a chat <li> element with passed message and classname
+    const chatLi = document.createElement("li");
+    chatLi.classList.add("chat", className);
+    let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+    chatLi.innerHTML = chatContent;
+    chatLi.querySelector("p").textContent = message;
+    return chatLi;
+}
+
+const generateResponse = (IncomingchatLi) => {
+    const API_URL="https://api.openai.com/v1/chat/completions";
+    const messageElement=IncomingchatLi.querySelector("p");
+
+    const requestOptions ={
+        method:"POST",
+        headers:{
+            "Content-Type" : "application/json",
+            "Authorization" : `Bearer ${API_KEY}`
+        },
+        body:JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [{role: "user", content: userMessage}]
+        })
+    }
+    // send post request to api get response
+    fetch(API_URL,requestOptions).then(res => res.json()).then(data => {
+        messageElement.textContent = data.choices[0].message.content;
+    }).catch((error) => {
+        messageElement.classList.add("error");
+        messageElement.textContent = "oops!somthing went wrong. please try again.";
+    }).finally(() =>  chatbox.scrollTo(0, chatbox.scrollHeight));
+
+
+}
+
+const handlechat = () => {
+    userMessage = chatInput.value.trim();
+    if(!userMessage)return;
+    chatInput.value ="";
+    chatInput.style.height = `${inputIniHeight}px`;
+
+    //append users message to the chatbox
+
+    chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+
+    setTimeout(() => {
+        //display thinking ...message while for waiting  response
+        const IncomingchatLi =createChatLi("Thinking....", "Incoming")
+        chatbox.appendChild(IncomingchatLi);
+        chatbox.scrollTo(0, chatbox.scrollHeight);
+
+        generateResponse(IncomingchatLi);
+    }, 600)
+
+
+}
+chatInput.addEventListener("input" , () => {
+    //adjust the hight of the input textarea based on its content
+    chatInput.style.height = `${inputIniHeight}px`;
+    chatInput.style.height = `${chatInput.scrollHeight}px`;
+
+});
+
+chatInput.addEventListener("keydown" , (e) => {
+    //if enter key pressed without shift key and window
+    //width is greater than 80px,handle the chat
+    if(e.key === "Enter" && !e.shiftkey && window.innerWidth > 800) {
+        e.preventDefault();
+        handlechat();
+    }
+
+
+});
+
+sendChatBtn.addEventListener("click", handlechat);
+chatbotCloseBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Free Tour and Travel Website Tempalte | Smarteyeapps.com</title>
+    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/fav.jpg">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/slider/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/slider/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+</head>
+
+    <body>
+
+ <!-- ################# Header Starts Here #######################--->
+
+       <header class="conainer-fluid">
+           <div class="header-top">
+               <div class="container">
+                   <div class="row">
+                       <div class="col-md-4 logo">
+                           <img src="assets/images/logo.png" alt="">
+                           <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
+                       </div>
+                       <div class="col-md-8 d-none d-md-block clldetal">
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="header-bottom">
+               <div class="container">
+                   <div  class="row">
+
+                        <div id="menu" class="col-lg-17col-md-9 d-none d-md-block navs">
+                    <ul>
+                        <li><a href="{% url 'home_page' %}">Home</a></li>
+                        <li><a href="{% url 'about_page' %}">About Us</a></li>
+                        <li><a href="{% url 'hotel_all' %}">Packages</a></li>
+                        <li><a href="{% url 'all_des' %}">Destinations</a></li>
+                        <li><a href="{% url 'blog_page' %}}">Blog</a></li>
+                        <li><a href="{% url 'contact_us' %}">Contact</a></li>
+                     <li><a href="{% url 'booking_page' %}">Booked Details</a></li>
+
+
+                    </ul>
+                       </div>
+                       <div class="col-md-4 d-none d-lg-block socials">
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </header>
+
+
+    <!--  ************************* Page Title Starts Here ************************** -->
+
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> Contact Us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+      <!--  ************************* Contact Us Starts Here ************************** -->
+
+
+    <div style="margin-top:0px;" class="row no-margin">
+
+        <iframe style="width:100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15933528.384143036!2d90.80080763757572!3d12.841882077790602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304d8df747424db1%3A0x9ed72c880757e802!2sThailand!5e0!3m2!1sen!2sin!4v1712164965811!5m2!1sen!2sin""  height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    </div>
+
+    <div class="row contact-rooo no-margin">
+        <div class="container">
+            <div class="row">
+
+
+                <div style="padding:20px" class="col-sm-7">
+                    <h2 >Contact Form</h2> <br>
+            <form method="post" action="{% url 'save_contact' %}" enctype="multipart/form-data">
+					{% csrf_token %}
+				<div class="row">
+
+                    <div class="mb-3" style="width:680px;height:60px;">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" class="form-control"  placeholder="Name" name="uname">
+
+                    </div><br>
+                    <div class="mb-3" style="width:680px;height:60px;">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control"  placeholder="name@example.com" name="mail">
+
+                    </div><br>
+                    <div class="mb-3" style="width:680px;height:60px;">
+                        <label for="exampleFormControlInput1" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject" name="subj">
+
+                    </div><br>
+                    <div class="mb-3" style="width:680px;height:60px;">
+                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mess"></textarea>
+                    </div><br>
+					<div style="margin-top:60px;margin-left:300px">
+						<button type="submit" class="btn btn-danger">Submit</button>
+					</div>
+				</div>
+						</form>
+                <div class="col-sm-5">
+
+                    <div style="margin:50px" class="serv">
+
+
+
+
+
+                        <h2 style="margin-top:10px;">Address</h2>
+
+                       Bangkok, <br>
+                        23/H-2, Building<br>
+                        TA, AUS District<br>
+                        Phone:+91 9159669599<br>
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+   <!--################### Footer Starts Here #######################--->
+
+    <footer class="container-fluid footer">
+        <div class="container">
+            <div class="foot-row row">
+                <div class="col-md-4 address">
+                    <h4>Contact Us</h4>
+
+                    <p>8th flora, 500/D Amlod road, Tender <br>
+                    lane New York-1782 <br>
+                    +10 367 654 345 <br>
+                    contact@smarteyeapps.com</p>
+                </div>
+                <div class="col-md-2 qlink">
+                    <h4>Conpany</h4>
+                    <ul>
+                       <li><a href="{% url 'home_page' %}">Home</a></li>
+                        <li><a href="{% url 'about_page' %}">About Us</a></li>
+                        <li><a href="{% url 'hotel_all' %}">Hotels</a></li>
+                        <li><a href="{% url 'all_des' %}">Destinations</a></li>
+                        <li><a href="{% url 'contact_us' %}">Contact</a></li>
+                     <li><a href="{% url 'booking_page' %}">Booked Details</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 destinations">
+                     <h4>Popular Destinations</h4>
+                     <ul>
+                         <li><a href="">Indonesia</a></li>
+                         <li><a href="">India</a></li>
+                         <li><a href="">Italy</a></li>
+                         <li><a href="">Frencs</a></li>
+                         <li><a href="">Switzerland</a></li>
+                         <li><a href="">Americak</a></li>
+                         <li><a href="">Australia</a></li>
+                         <li><a href="">Cnada</a></li>
+                         <li><a href="">England</a></li>
+                     </ul>
+                </div>
+                <div class="col-md-3 gallery">
+                   <h4>Gallery</h4>
+                    <div class="row gallery-row">
+                        <div class="col-4 lck">
+                            <img src="assets/images/gallery/gallery_01.jpg" alt="">
+                        </div>
+                         <div class="col-4 lck">
+                            <img src="assets/images/gallery/gallery_02.jpg" alt="">
+                        </div>
+                         <div class="col-4 lck">
+                            <img src="assets/images/gallery/gallery_03.jpg" alt="">
+                        </div>
+                         <div class="col-4 lck">
+                            <img src="assets/images/gallery/gallery_04.jpg" alt="">
+                        </div>
+                         <div class="col-4 lck">
+                            <img src="assets/images/gallery/gallery_05.jpg" alt="">
+                        </div>
+                         <div class="col-4 lck">
+                            <img src="assets/images/gallery/gallery_06.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copy">
+                <a href="https://www.smarteyeapps.com/">2019 © All Rights Reserved | Designed and Developed by Smarteyeapps</a>
+                <span>
+                    <a><i class="fab fa-github"></i></a>
+                    <a><i class="fab fa-google-plus-g"></i></a>
+                    <a><i class="fab fa-pinterest-p"></i></a>
+                    <a><i class="fab fa-twitter"></i></a>
+                    <a><i class="fab fa-facebook-f"></i></a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    </body>
+
+        <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js' %}"></script>
+    <script src="{% static 'assets/plugins/slider/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+</html>
